@@ -1,2 +1,12 @@
-<app-header></app-header>
+<app-header [farms]="farms$ | async" (change)="farmSelect($event)" (loadFarm)="loadFarm()" ></app-header>
+<div>
+
+  <label for="chart" (click)="setViewoption(true)">
+    <input type="radio" id="chart" name="switcher" checked>Chart
+  </label>
+  <label for="table" (click)="setViewoption(false)">
+    <input type="radio" id="table" name="switcher">Table
+  </label>
+</div>
 <router-outlet></router-outlet>
+<app-spinner *ngIf="(farmsLoading$ | async) || (farmLoading$ | async)"></app-spinner>

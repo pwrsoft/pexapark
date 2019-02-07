@@ -1,0 +1,58 @@
+{
+  "farms": [
+    { "id": 1, "name": "Farm 1" },
+    { "id": 2, "name": "Farm 2" }
+  ],
+
+  "farmsData": [
+    {
+      "id": 1,
+      "farmId": 1,
+      "name": "Farm 1",
+      "report": [
+        {
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },
+        {
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },{
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },{
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },{
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },{
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        },{
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "farmId": 2,
+      "name": "Farm 2",
+      "report": [
+        {
+          "month": "Jan",
+          "budget": 100,
+          "realized": 90
+        }
+      ]
+    }
+  ]
+}

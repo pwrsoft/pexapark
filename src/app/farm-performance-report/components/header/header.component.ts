@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs/index';
 
-import { State } from '../../store/reducers';
+import { Farm } from '../../models';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +11,29 @@ import { State } from '../../store/reducers';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(
-    private store: Store<State>,
-  ) { }
+  @Input() farms: Farm[];
+  @Output() change: EventEmitter<number> = new EventEmitter<number>();
+  @Output() loadFarm: EventEmitter<any> = new EventEmitter<any>();
 
-  ngOnInit() {}
+  form: FormGroup = this.fb.group({
+    farm: null
+  });
+
+  constructor( private fb: FormBuilder) { }
+
+  ngOnInit() {
+    this.form
+        .valueChanges
+        .subscribe((value: any) => {
+          this.change.emit(Number(value.farm));
+    });
+  }
+
+  apply() {
+    this.loadFarm.emit();
+  }
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();

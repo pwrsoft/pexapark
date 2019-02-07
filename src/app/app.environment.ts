@@ -4,7 +4,7 @@ export interface AppEnvironment {
 }
 
 export const environment: AppEnvironment = {
-  apiUrl: '',
+  apiUrl: 'http://localhost:3000',
   env: 'QA'
 };
 

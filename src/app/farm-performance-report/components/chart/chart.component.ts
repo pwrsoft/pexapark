@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs/index';
-
-import { State } from '../../store/reducers';
+import { Chart } from 'angular-highcharts';
 
 @Component({
   selector: 'app-chart',
@@ -11,14 +10,31 @@ import { State } from '../../store/reducers';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit, OnDestroy {
+  chart = new Chart({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Linechart'
+    },
+    credits: {
+      enabled: false
+    },
+    series: [
+      {
+        name: 'Line 1',
+        data: [1, 2, 3]
+      }
+    ]
+  });
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(
-    private store: Store<State>,
-  ) { }
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();
