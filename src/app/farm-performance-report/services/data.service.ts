@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
-import { catchError } from 'rxjs/internal/operators';
+import { catchError, delay, take, map } from 'rxjs/internal/operators';
 import { delay } from 'rxjs/internal/operators';
 import { take } from 'rxjs/internal/operators';
 
 import { Farm, FarmData } from '../models';
 import environment from '../../app.environment';
+import { of } from 'rxjs/index';
 
 @Injectable()
 export class DataService {
@@ -21,7 +22,7 @@ export class DataService {
       .pipe(
         delay(2000),
         take(1),
-        catchError((err: any) => console.log(err.json())));
+        catchError((err: any) => of(console.log(err.json()))));
   }
 
   getFarmById(id: number): Observable<FarmData> {
@@ -29,6 +30,7 @@ export class DataService {
       .pipe(
         delay(2000),
         take(1),
-        catchError((err: any) => console.log(err.json())));
+        map(res => res[0]),
+        catchError((err: any) => of(console.log(err.json()))));
   }
 }

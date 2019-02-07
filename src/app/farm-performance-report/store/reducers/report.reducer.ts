@@ -5,7 +5,6 @@ export interface ReportState {
   farms: Farm[];
   farmsLoaded: boolean;
   farmsLoading: boolean;
-  farmsError: any;
   farmId: number;
   farmData: FarmData;
   farmLoaded: boolean;
@@ -17,7 +16,6 @@ export const initialState: ReportState = {
   farms: null,
   farmsLoaded: false,
   farmsLoading: false,
-  farmsError: null,
   farmId: null,
   farmData: null,
   farmLoaded: false,
@@ -70,10 +68,11 @@ export function reportReducer(state = initialState, action: fromReport.ReportAct
 
     case fromReport.LOAD_FARM_SUCCESS: {
       const { farm } = action;
+
       return Object.assign({}, state, {
         farmLoading: false,
         farmLoaded: true,
-        farmData: {...farm[0]}
+        farmData: {...farm}
       });
     }
 
@@ -99,7 +98,6 @@ export function reportReducer(state = initialState, action: fromReport.ReportAct
 export const getFarms = (state: ReportState) => state.farms;
 export const getFarmsLoaded = (state: ReportState) => state.farmsLoaded;
 export const getFarmsLoading = (state: ReportState) => state.farmsLoading;
-export const getFarmsError = (state: ReportState) => state.farmsError;
 export const getFarmId = (state: ReportState) => state.farmId;
 export const getFarm = (state: ReportState) => state.farmData;
 export const getFarmLoaded = (state: ReportState) => state.farmLoaded;

@@ -27,7 +27,6 @@ export const getReportState = (state: State ) => state.report;
 export const getFarms = createSelector( getReportState, fromReport.getFarms);
 export const getFarmsLoaded = createSelector( getReportState, fromReport.getFarmsLoaded);
 export const getFarmsLoading = createSelector( getReportState, fromReport.getFarmsLoading);
-export const getFarmsError = createSelector( getReportState, fromReport.getFarmsError);
 export const getFarmId = createSelector( getReportState, fromReport.getFarmId);
 export const getFarm = createSelector( getReportState, fromReport.getFarm);
 export const getFarmLoaded = createSelector( getReportState, fromReport.getFarmLoaded);

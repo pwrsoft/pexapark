@@ -27,7 +27,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.form
         .valueChanges
         .subscribe((value: any) => {
-          this.change.emit(Number(value.farm));
+          if (value.farm !== 'null') {
+            this.change.emit(Number(value.farm));
+          }
     });
   }
 

@@ -8,11 +8,14 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '../store';
 
 @Injectable()
-export class ReportGuard implements CanActivate {
+export class FarmsGuard implements CanActivate {
   constructor(private store: Store<fromStore.State>) {}
 
   canActivate(): Observable<boolean> {
-    return of(true);
+    return this.checkStore().pipe(
+      switchMap(() => of(true)),
+      catchError(() => of(false))
+    );
   }
 
   checkStore(): Observable<boolean> {

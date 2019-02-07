@@ -6,14 +6,11 @@
   <span class="rightPart">
     <mat-form-field [formGroup]="form">
       <select matNativeControl required formControlName="farm" >
+        <option value="null">Select Farm</option>
         <option *ngFor="let f of farms" value="{{f.id}}">{{f.name}}</option>
       </select>
     </mat-form-field>
 
-    <button mat-raised-button
-        color="primary"
-        (click)="apply()">
-        Apply
-    </button>
+    <button mat-raised-button color="primary" (click)="apply()">Apply</button>
   </span>
 </nav>
