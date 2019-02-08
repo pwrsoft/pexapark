@@ -1,0 +1,37 @@
+@import './colors';
+@import './spacing';
+//--------------------
+// Angular Material overrides
+//--------------------
+
+.mat-form-field-wrapper {
+  padding: 0!important;
+}
+.mat-form-field-underline,
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  display: none !important;
+}
+.mat-select {
+  line-height: 1;
+}
+.mat-select-value {
+  vertical-align: middle;
+}
+.mat-form-field-infix {
+  border-top: none
+}
+.mat-raised-button.mat-primary {
+  vertical-align: top;
+  background-color: $primary-dark;
+}
+.mat-form-field-label {
+  padding-left: $spacing-sm;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $primary-dark;
+}
+.mat-raised-button[disabled]:not([class*=mat-elevation-z]) {
+  color: $white-dark;
+}
+// ===================

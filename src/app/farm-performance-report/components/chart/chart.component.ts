@@ -1,7 +1,32 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs/index';
-//import { Chart } from 'angular-highcharts';
+import { Component, OnInit, OnChanges, ChangeDetectionStrategy, Input, SimpleChanges } from '@angular/core';
+import { Chart } from 'angular-highcharts';
+
+import { FarmData } from '../../models';
+
+const CHART_OPTIONS = {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: 'Farm performance'
+  },
+  xAxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+  },
+  yAxis: {
+    title: {
+      text: '$'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  }
+};
 
 @Component({
   selector: 'app-chart',
@@ -9,35 +34,29 @@ import { Subject } from 'rxjs/index';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent implements OnInit, OnDestroy {
-  /*chart = new Chart({
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'Linechart'
-    },
-    credits: {
-      enabled: false
-    },
-    series: [
-      {
-        name: 'Line 1',
-        data: [1, 2, 3]
-      }
-    ]
-  });*/
-
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+export class ChartComponent implements OnInit, OnChanges {
+  @Input() data: FarmData;
+  chart: Chart;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes && changes.data && changes.data.currentValue) {
+      this.chart = new Chart(CHART_OPTIONS);
 
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+      const series = [
+        {
+          name: 'Budget',
+          data: changes.data.currentValue.report.map( item => item.budget)
+        },
+        {
+          name: 'Realized',
+          data: changes.data.currentValue.report.map( item => item.realized)
+        }
+      ];
+      this.chart.addSeries(series);
+    }
   }
 }

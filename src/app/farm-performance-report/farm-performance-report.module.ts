@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 // material
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 
 // highcharts
@@ -47,6 +48,7 @@ import { FarmPerformanceReportRoutingModule } from './farm-performance-report.ro
     MatInputModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatTableModule,
     // highcharts
     ChartModule
   ],

@@ -1,0 +1,45 @@
+//-------------------------------------------
+// 🌌 Spacing
+// ------------------------------------------
+//
+//   Size in px based on 16px base
+//
+//   Spacing Scale
+//   ==========================================
+//   2xs  ||  4px
+//   xs   ||  8px
+//   sm   ||  12px
+//   md   ||  16px
+//   lg   ||  24px
+//   xl   ||  32px
+//   2xl  ||  40px
+//   3xl  ||  48px
+//   ==========================================
+//
+//   Layout Scale
+//   ==========================================
+//   2xs  ||  16px
+//   xs   ||  24px
+//   sm   ||  32px
+//   md   ||  48px
+//   lg   ||  64px
+//   xl   ||  96px
+//   ==========================================
+
+$spacing-baseline: 1rem;
+
+$spacing-2xs: $spacing-baseline * 0.25;
+$spacing-xs: $spacing-baseline * 0.5;
+$spacing-sm: $spacing-baseline * 0.75;
+$spacing-md: $spacing-baseline;
+$spacing-lg: $spacing-baseline * 1.5;
+$spacing-xl: $spacing-baseline * 2;
+$spacing-2xl: $spacing-baseline * 2.5;
+$spacing-3xl: $spacing-baseline * 3;
+
+$layout-2xs: $spacing-baseline;
+$layout-xs: $spacing-baseline * 1.5;
+$layout-sm: $spacing-baseline * 2;
+$layout-md: $spacing-baseline * 3;
+$layout-lg: $spacing-baseline * 4;
+$layout-xl: $spacing-baseline * 6;

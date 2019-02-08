@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs/index';
 
 import { Farm } from '../../models';
 
@@ -10,10 +9,9 @@ import { Farm } from '../../models';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
-
+export class HeaderComponent implements OnInit {
   @Input() farms: Farm[];
+  @Input() disabled: boolean;
   @Output() change: EventEmitter<number> = new EventEmitter<number>();
   @Output() loadFarm: EventEmitter<any> = new EventEmitter<any>();
 
@@ -35,10 +33,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   apply() {
     this.loadFarm.emit();
-  }
-
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
   }
 }

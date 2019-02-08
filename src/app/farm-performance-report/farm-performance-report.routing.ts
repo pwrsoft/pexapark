@@ -6,9 +6,12 @@ import { TableReportComponent } from './containers/tableReport/tableReport.compo
 import { ReportGuard, FarmsGuard } from './guards';
 
 export const routes: Routes = [
-  { path: '',  canActivate: [ReportGuard], component: ReportComponent },
-  { path: 'chart/:id', component: ChartReportComponent },
-  { path: 'table/:id', component: TableReportComponent }
+  { path: '',  canActivate: [FarmsGuard], component: ReportComponent,
+    children: [
+      { path: 'chart/:id', component: ChartReportComponent },
+      { path: 'table/:id', component: TableReportComponent }
+    ]
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+@import './vars';
+
+@mixin transform($v...){
+  -ms-transform: $v; /* IE 9 */
+  -webkit-transform: $v; /* Chrome, Safari, Opera */
+  transform: $v;
+}
+
+/* =================
+  Media Query Mixins
+================= */
+@mixin mobile {
+@media (max-width: $mobile-width) {
+  @content;
+  }
+}
+
+@mixin tablet {
+@media (min-width: $tablet-width){
+  @content;
+  }
+}
+
+@mixin small-desktop {
+@media (min-width: $small-desktop-width){
+  @content;
+  }
+}
+
+@mixin large-desktop {
+@media (min-width: $large-desktop-width) {
+  @content;
+  }
+}
+// =================

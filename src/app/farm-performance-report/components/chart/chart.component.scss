@@ -1,0 +1,20 @@
+@import '../../../styles/app';
+
+:host {
+  .c-chart {
+    &--header {
+      text-align: center;
+      color: $ink;
+    }
+    .l-chart--container {
+      width: $mobile-width;
+      margin: $spacing-xl auto;
+    }
+    table {
+      width: 100%;
+      th {
+        width: 33.33%;
+      }
+    }
+  }
+}

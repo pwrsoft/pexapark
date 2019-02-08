@@ -1,1 +1,29 @@
-<div>Table</div>
+<div class="c-table">
+  <div class="l-table--container">
+    <h3 class="c-table--header">{{data?.name}}</h3>
+
+    <table mat-table [dataSource]="farmData" class="mat-elevation-z8">
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="month">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+      </ng-container>
+
+      <!-- Budget Column -->
+      <ng-container matColumnDef="budget">
+        <th mat-header-cell *matHeaderCellDef> Budget </th>
+        <td mat-cell *matCellDef="let element"> {{element.budget}} </td>
+      </ng-container>
+
+      <!-- Realized Column -->
+      <ng-container matColumnDef="realized">
+        <th mat-header-cell *matHeaderCellDef> Realized </th>
+        <td mat-cell *matCellDef="let element"> {{element.realized}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

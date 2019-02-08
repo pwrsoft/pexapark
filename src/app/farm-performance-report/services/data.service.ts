@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
 import { catchError, delay, take, map } from 'rxjs/internal/operators';
-import { delay } from 'rxjs/internal/operators';
-import { take } from 'rxjs/internal/operators';
 
 import { Farm, FarmData } from '../models';
 import environment from '../../app.environment';
@@ -17,8 +15,8 @@ export class DataService {
     private http: HttpClient,
   ) { }
 
-  getFarms(): Observable<Farm[]> {
-    return this.http.get<Farm[]>(`${this.url}/farms`)
+  getFarms(): Observable<any> {
+    return this.http.get<any>(`${this.url}/farms`)
       .pipe(
         delay(2000),
         take(1),

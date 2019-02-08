@@ -1,0 +1,40 @@
+@import '../../../styles/app';
+
+:host {
+  .c-presenatation {
+
+    table {
+      width: 100%;
+    }
+    &--options {
+      width: $mobile-width;
+      margin: 0 auto;
+
+      background-color: $primary-dark;
+      border-radius: $border-radius;
+
+      input {
+        display: none;
+      }
+      label {
+        width: 50%;
+        display: inline-block;
+        line-height: 3rem;
+        text-align: center;
+        color: $white;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .is-active {
+        color: $white-dark;
+        background-color: $primary-darker;
+      }
+    }
+  }
+  .l-presentation--container {
+    background-color: $ink-lighter;
+    padding: $spacing-xl 0;
+  }
+}

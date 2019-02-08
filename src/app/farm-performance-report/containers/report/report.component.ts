@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs/index';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/internal/operators';
 
 import { Farm, FarmData } from '../../models';
 import * as fromStore from '../../store';
@@ -12,6 +13,7 @@ import * as fromStore from '../../store';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
 })
+
 export class ReportComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
@@ -35,6 +37,13 @@ export class ReportComponent implements OnInit, OnDestroy {
     this.farmLoading$ = this.store.select(fromStore.getFarmLoading);
     this.isChart$ = this.store.select(fromStore.getIsChart);
     this.selectedFarm$ = this.store.select(fromStore.getFarm);
+    this.selectedFarm$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe( (farm) => {
+      if (!farm) {
+        this.router.navigate([`/report`]);
+      }
+    });
   }
 
   farmSelect(id: number) {
@@ -52,6 +61,7 @@ export class ReportComponent implements OnInit, OnDestroy {
   setPresentationOption(isChart: boolean) {
     this.isChart = isChart;
     this.store.dispatch(new fromStore.SetIsChart(isChart));
+    this.navigate();
   }
 
   navigate() {

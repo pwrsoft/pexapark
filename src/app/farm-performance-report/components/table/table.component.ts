@@ -1,8 +1,6 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs/index';
+import { Component, OnInit, OnChanges, ChangeDetectionStrategy, Input, SimpleChanges } from '@angular/core';
 
-import { State } from '../../store/reducers';
+import { FarmData, ReportItem } from '../../models';
 
 @Component({
   selector: 'app-table',
@@ -10,18 +8,20 @@ import { State } from '../../store/reducers';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit, OnDestroy {
+export class TableComponent implements OnInit, OnChanges {
 
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  @Input() data: FarmData;
 
-  constructor(
-    private store: Store<State>,
-  ) { }
+  displayedColumns: string[] = ['month', 'budget', 'realized'];
+  farmData: ReportItem[] = [];
+
+  constructor() { }
 
   ngOnInit() {}
 
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes && changes.data) {
+      this.farmData = this.data && this.data.report;
+    }
   }
 }
