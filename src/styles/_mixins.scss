@@ -1,4 +1,4 @@
-@import './vars';
+@import 'vars';
 
 @mixin transform($v...){
   -ms-transform: $v; /* IE 9 */

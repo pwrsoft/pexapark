@@ -12,33 +12,52 @@
       "report": [
         {
           "month": "Jan",
-          "budget": 100,
-          "realized": 90
-        },
-        {
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "budget": 39500,
+          "realized": 40000
         },{
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "month": "Feb",
+          "budget": 39500,
+          "realized": 27000
         },{
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "month": "Mar",
+          "budget": 37500,
+          "realized": 42500
         },{
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "month": "Apr",
+          "budget": 37500,
+          "realized": 28500
         },{
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "month": "May",
+          "budget": 37500,
+          "realized": 38500
         },{
-          "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "month": "Jun",
+          "budget": 37500,
+          "realized": 41500
+        },{
+          "month": "Jul",
+          "budget": 37500,
+          "realized": 17000
+        },{
+          "month": "Aug",
+          "budget": 37500,
+          "realized": 27000
+        },{
+          "month": "Sep",
+          "budget": 37500,
+          "realized": null
+        },{
+          "month": "Oct",
+          "budget": 37500,
+          "realized": null
+        },{
+          "month": "Nov",
+          "budget": 37500,
+          "realized": null
+        },{
+          "month": "Dec",
+          "budget": 37500,
+          "realized": null
         }
       ]
     },
@@ -49,8 +68,52 @@
       "report": [
         {
           "month": "Jan",
-          "budget": 100,
-          "realized": 90
+          "budget": 50000,
+          "realized": 10000
+        },{
+          "month": "Feb",
+          "budget": 50000,
+          "realized": 12000
+        },{
+          "month": "Mar",
+          "budget": 50000,
+          "realized": 18000
+        },{
+          "month": "Apr",
+          "budget": 50000,
+          "realized": 80000
+        },{
+          "month": "May",
+          "budget": 50000,
+          "realized": 13000
+        },{
+          "month": "Jun",
+          "budget": 50000,
+          "realized": 30000
+        },{
+          "month": "Jul",
+          "budget": 50000,
+          "realized": 42000
+        },{
+          "month": "Aug",
+          "budget": 50000,
+          "realized": 27000
+        },{
+          "month": "Sep",
+          "budget": 50000,
+          "realized": null
+        },{
+          "month": "Oct",
+          "budget": 50000,
+          "realized": null
+        },{
+          "month": "Nov",
+          "budget": 50000,
+          "realized": null
+        },{
+          "month": "Dec",
+          "budget": 50000,
+          "realized": null
         }
       ]
     }
