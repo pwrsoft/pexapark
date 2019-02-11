@@ -47,8 +47,7 @@ export function reportReducer(state = initialState, action: fromReport.ReportAct
 
       return Object.assign({}, state, {
         farmsLoading: false,
-        farmsLoaded: false,
-        farmsError: err
+        farmsLoaded: false
       });
     }
 

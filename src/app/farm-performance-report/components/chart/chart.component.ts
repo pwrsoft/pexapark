@@ -3,31 +3,6 @@ import { Chart } from 'angular-highcharts';
 
 import { FarmData } from '../../models';
 
-const CHART_OPTIONS = {
-  chart: {
-    type: 'line'
-  },
-  title: {
-    text: 'Farm performance'
-  },
-  xAxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
-  },
-  yAxis: {
-    title: {
-      text: '$'
-    }
-  },
-  plotOptions: {
-    line: {
-      dataLabels: {
-        enabled: true
-      },
-      enableMouseTracking: false
-    }
-  }
-};
-
 @Component({
   selector: 'app-chart',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,19 +19,45 @@ export class ChartComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes.data && changes.data.currentValue) {
-      this.chart = new Chart(CHART_OPTIONS);
-
-      const series = [
-        {
-          name: 'Budget',
-          data: changes.data.currentValue.report.map( item => item.budget)
+      const budgedValues = changes.data.currentValue.report.map( item => item.budget);
+      const realizedValues = changes.data.currentValue.report.map( item => item.realized);
+      const CHART_OPTIONS = {
+        chart: {
+          type: 'column'
         },
-        {
-          name: 'Realized',
-          data: changes.data.currentValue.report.map( item => item.realized)
-        }
-      ];
-      this.chart.addSeries(series);
+        title: {
+          text: `${changes.data.currentValue.name} Performance`
+        },
+        xAxis: {
+          categories: changes.data.currentValue.report.map( item => item.month)
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'MWh'
+          }
+        },
+        plotOptions: {
+          column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+          }
+        },
+        series: [
+          {
+            type: 'column',
+            name: 'Budget',
+            data: budgedValues
+          },
+          {
+            type: 'column',
+            name: 'Realized',
+            data: realizedValues
+          }
+        ]
+      };
+
+      this.chart = new Chart(CHART_OPTIONS);
     }
   }
 }

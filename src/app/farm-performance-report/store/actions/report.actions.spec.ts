@@ -13,11 +13,11 @@ describe('Report Actions', () => {
 
     describe('LoadFarmsFail', () => {
       it('should create an action', () => {
-        const err = { err: 'Load Error' };
+        const err = 'Load Error';
         const action = new fromReport.LoadFarmsFail(err);
 
         expect({ ...action }).toEqual({
-          type: fromReport.LOAD_FARMS,
+          type: fromReport.LOAD_FARMS_FAIL,
           err,
         });
       });
@@ -56,7 +56,7 @@ describe('Report Actions', () => {
         const action = new fromReport.LoadFarmFail(err);
 
         expect({ ...action }).toEqual({
-          type: fromReport.LOAD_FARM,
+          type: fromReport.LOAD_FARM_FAIL,
           err,
         });
       });
@@ -73,7 +73,7 @@ describe('Report Actions', () => {
               { month: 'Jan', budget: 39000, realized: 40000 }
             ]
           };
-        const action = new fromReport.LoadFarmsSuccess(farm);
+        const action = new fromReport.LoadFarmSuccess(farm);
 
         expect({ ...action }).toEqual({
           type: fromReport.LOAD_FARM_SUCCESS,

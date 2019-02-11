@@ -32,9 +32,30 @@
         background-color: $primary-darker;
       }
     }
+    &--tip {
+      font-size: 100px;
+      text-align: center;
+      margin: $spacing-3xl;
+      color: $ink-lightest;
+      opacity: 0.2;
+    }
   }
   .l-presentation--container {
     background-color: $ink-lighter;
     padding: $spacing-xl 0;
+  }
+
+  @include mobile {
+    .l-presentation--container {
+      padding: $spacing-sm 0;
+    }
+    .c-presenatation {
+      &--options {
+        width: 100%
+      }
+      &--tip {
+        font-size: 50px;
+      }
+    }
   }
 }

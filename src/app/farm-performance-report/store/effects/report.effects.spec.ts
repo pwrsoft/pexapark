@@ -9,7 +9,10 @@ import { Observable, empty, of } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import * as fromEffects from './report.effects';
 import * as fromActions from '../actions/report.actions';
-import {Farm} from '../../models';
+import * as fromReducers from '../reducers/report.reducer';
+import { Farm } from '../../models';
+
+import { StoreModule } from '@ngrx/store';
 
 export class TestActions extends Actions {
   constructor() {
@@ -38,11 +41,11 @@ describe('ReportEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, StoreModule.forRoot(fromReducers.reportReducer)],
       providers: [
         DataService,
         fromEffects.ReportEffects,
-        { provide: Actions, useFactory: getActions },
+        { provide: Actions, useFactory: getActions }
       ],
     });
 

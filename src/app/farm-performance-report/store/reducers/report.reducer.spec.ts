@@ -46,16 +46,9 @@ describe('ReportReducer', () => {
   });
 
   describe('LOAD_FARMS_FAIL action', () => {
-    it('should return the initial state', () => {
-      const { initialState } = fromReport;
-      const action = new fromActions.LoadFarmsFail({});
-      const state = fromReport.reportReducer(initialState, action);
-
-      expect(state).toEqual(initialState);
-    });
     it('should return the previous state', () => {
       const { initialState } = fromReport;
-      const previousState = { ...initialState, farmsLoading: true };
+      const previousState = { ...initialState, farmsLoading: false };
       const action = new fromActions.LoadFarmsFail({});
       const state = fromReport.reportReducer(previousState, action);
       expect(state).toEqual(initialState);

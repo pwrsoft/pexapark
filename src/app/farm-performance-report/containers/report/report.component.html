@@ -1,9 +1,12 @@
+<!-- HEADER -->
 <app-header [farms]="farms$ | async"
             [disabled]="!farmId"
             (change)="farmSelect($event)"
             (loadFarm)="loadFarm()" >
 </app-header>
+<!-- END HEADER -->
 
+<!-- PRECENTATION CONTROL -->
 <div class="c-presenatation">
   <div *ngIf="selectedFarm$ | async" class="l-presentation--container">
     <div class="c-presenatation--options">
@@ -15,8 +18,11 @@
     </div>
   </div>
 
+  <div *ngIf="!(selectedFarm$ | async)" class="c-presenatation--tip">Select Farm</div>
+
   <router-outlet></router-outlet>
 
 </div>
+<!-- PRECENTATION CONTROL -->
 
 <app-spinner *ngIf="(farmsLoading$ | async) || (farmLoading$ | async)"></app-spinner>

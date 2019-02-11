@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
 import { catchError, delay, take, map } from 'rxjs/internal/operators';
 
-import { Farm, FarmData } from '../models';
+import { FarmData } from '../models';
 import environment from '../../app.environment';
 import { of } from 'rxjs/index';
 
