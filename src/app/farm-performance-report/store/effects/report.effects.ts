@@ -19,7 +19,6 @@ export class ReportEffects {
   @Effect()
   loadFarms$ = this.actions$.pipe(
     ofType<reportActions.ReportActions>(reportActions.LOAD_FARMS),
-    withLatestFrom(this.store.select(reportReducer.getFarms)),
     switchMap(() => {
       return this.dataService.getFarms().pipe(
         map((loadedFarms: Farm[]) => new reportActions.LoadFarmsSuccess(loadedFarms)),
