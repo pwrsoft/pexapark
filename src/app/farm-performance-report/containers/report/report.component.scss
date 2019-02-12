@@ -6,7 +6,7 @@
     table {
       width: 100%;
     }
-    &--options {
+    &__options {
       width: $mobile-width;
       margin: 0 auto;
 
@@ -32,7 +32,7 @@
         background-color: $primary-darker;
       }
     }
-    &--tip {
+    &__tip {
       font-size: 100px;
       text-align: center;
       margin: $spacing-3xl;
@@ -40,20 +40,20 @@
       opacity: 0.2;
     }
   }
-  .l-presentation--container {
+  .l-presentation__container {
     background-color: $ink-lighter;
     padding: $spacing-xl 0;
   }
 
   @include mobile {
-    .l-presentation--container {
+    .l-presentation__container {
       padding: $spacing-sm 0;
     }
     .c-presenatation {
-      &--options {
+      &__options {
         width: 100%
       }
-      &--tip {
+      &__tip {
         font-size: 50px;
       }
     }

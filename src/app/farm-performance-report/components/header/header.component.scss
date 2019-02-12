@@ -5,7 +5,7 @@
   .c-header {
     background-color: $ink-light;
 
-    &--brand {
+    &__brand {
       margin: 0 $spacing-xl;
       color: $white-dark;
       font-size: 2rem;
@@ -32,7 +32,7 @@
   }
   @include mobile {
     .c-header {
-      &--brand {
+      &__brand {
         display: none;
       }
 

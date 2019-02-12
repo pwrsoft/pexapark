@@ -8,8 +8,8 @@
 
 <!-- PRECENTATION CONTROL -->
 <div class="c-presenatation">
-  <div *ngIf="selectedFarm$ | async" class="l-presentation--container">
-    <div class="c-presenatation--options">
+  <div *ngIf="selectedFarm$ | async" class="l-presentation__container">
+    <div class="c-presenatation__options">
       <input type="radio" id="chart" name="switcher">
       <label for="chart" (click)="setPresentationOption(true)" [class.is-active]="isChart">Chart</label>
 
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div *ngIf="!(selectedFarm$ | async)" class="c-presenatation--tip">Select Farm</div>
+  <div *ngIf="!(selectedFarm$ | async)" class="c-presenatation__tip">Select Farm</div>
 
   <router-outlet></router-outlet>
 

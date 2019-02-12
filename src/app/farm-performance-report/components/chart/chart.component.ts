@@ -12,52 +12,60 @@ import { FarmData } from '../../models';
 export class ChartComponent implements OnInit, OnChanges {
   @Input() data: FarmData;
   chart: Chart;
+  options: any =  {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    xAxis: {
+      categories: []
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'MWh'
+      }
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: []
+  };
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.chart = new Chart(this.options);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes.data && changes.data.currentValue) {
       const budgedValues = changes.data.currentValue.report.map( item => item.budget);
       const realizedValues = changes.data.currentValue.report.map( item => item.realized);
-      const CHART_OPTIONS = {
-        chart: {
-          type: 'column'
-        },
-        title: {
-          text: `${changes.data.currentValue.name} Performance`
-        },
-        xAxis: {
-          categories: changes.data.currentValue.report.map( item => item.month)
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: 'MWh'
-          }
-        },
-        plotOptions: {
-          column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-          }
-        },
-        series: [
-          {
-            type: 'column',
-            name: 'Budget',
-            data: budgedValues
-          },
-          {
-            type: 'column',
-            name: 'Realized',
-            data: realizedValues
-          }
-        ]
-      };
+      const categories = changes.data.currentValue.report.map( item => item.month);
+      const name = `${changes.data.currentValue.name} Performance`;
 
-      this.chart = new Chart(CHART_OPTIONS);
+      this.options.name = name;
+      this.options.categories = categories;
+      this.options.name = name;
+      this.options.series = [
+        {
+          type: 'column',
+          name: 'Budget',
+          data: budgedValues
+        },
+        {
+          type: 'column',
+          name: 'Realized',
+          data: realizedValues
+        }
+      ];
+      this.chart = new Chart(this.options);
     }
   }
 }

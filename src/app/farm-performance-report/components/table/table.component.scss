@@ -2,11 +2,11 @@
 
 :host {
   .c-table {
-    &--header {
+    &__header {
       text-align: center;
       color: $ink;
     }
-    .l-table--container {
+    .l-table__container {
       width: $mobile-width;
       margin: $spacing-xl auto;
     }
@@ -16,16 +16,16 @@
         width: 33.33%;
       }
     }
-    .l-table--container {
+    .l-table__container {
       width: $mobile-width;
       margin: $spacing-xl auto;
     }
     @include mobile {
-      .l-table--container {
+      .l-table__container {
         width: 100%;
         margin: 0;
       }
-      &--header {
+      &__header {
         display: none;
       }
     }

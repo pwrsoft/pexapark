@@ -2,7 +2,7 @@
 
 :host {
   .c-chart {
-    &--header {
+    &__header {
       text-align: center;
       color: $ink;
     }
@@ -14,17 +14,17 @@
       }
     }
 
-    .l-chart--container {
+    .l-chart__container {
       width: $mobile-width;
       margin: $spacing-xl auto;
     }
 
     @include mobile {
-      .l-chart--container {
+      .l-chart__container {
         width: 100%;
         margin: 0;
       }
-      &--header {
+      &__header {
         display: none;
       }
     }
